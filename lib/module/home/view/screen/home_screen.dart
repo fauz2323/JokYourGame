@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: TextButton(
                           onPressed: () async {
                             await FlutterSecureStorage().deleteAll();
-                            Get.off(() => Login());
+                            Get.offAll(() => Login());
                           },
                           child: Text('Log Out'),
                         ),

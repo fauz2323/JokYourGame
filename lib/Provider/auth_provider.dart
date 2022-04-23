@@ -27,37 +27,32 @@ class AuthProvider extends ChangeNotifier {
   }
 
   login() async {
-    try {
-      isLoading = true;
-      print("object");
-      Map body = {
-        'username': usernameController.text,
-        'password': passwordController.text,
-      };
-      final response = await http
-          .post(
-            Uri.parse(Api.baseUrl + '/api/login'),
-            body: body,
-          )
-          .timeout(
-            Duration(seconds: 5),
-            onTimeout: (() => http.Response('err', 500)),
-          );
+    isLoading = true;
+    print("object");
+    Map body = {
+      'username': usernameController.text,
+      'password': passwordController.text,
+    };
+    final response = await http
+        .post(
+          Uri.parse(Api.baseUrl + '/api/login'),
+          body: body,
+        )
+        .timeout(
+          Duration(seconds: 5),
+          onTimeout: (() => http.Response('err', 500)),
+        );
 
-      var jsonData = json.decode(response.body);
-      print(jsonData);
+    var jsonData = json.decode(response.body);
+    print(jsonData);
 
-      if (jsonData['code'] == '000') {
-        isLoading = false;
-        Get.snackbar("Error", "Username/Password Salah");
-      } else {
-        await storage.write(key: 'token', value: jsonData['token']);
-        isLoading = false;
-        Get.offAll(() => Home());
-      }
-    } catch (e) {
+    if (jsonData['code'] == '000') {
       isLoading = false;
-      Get.snackbar("Error", "Error Connection to server");
+      Get.snackbar("Error", "Username/Password Salah");
+    } else {
+      await storage.write(key: 'token', value: jsonData['token']);
+      isLoading = false;
+      Get.offAll(() => Home());
     }
   }
 
@@ -73,7 +68,7 @@ class AuthProvider extends ChangeNotifier {
 
       final response = await http
           .post(
-            Uri.parse(Api.baseUrl + '/api/login'),
+            Uri.parse(Api.baseUrl + '/api/register'),
             body: body,
           )
           .timeout(
@@ -84,7 +79,7 @@ class AuthProvider extends ChangeNotifier {
       var jsonData = json.decode(response.body);
       print(jsonData);
 
-      if (jsonData['code'] == '001') {
+      if (jsonData['code'] == '002') {
         await storage.write(key: 'token', value: jsonData['data']['token']);
         Get.offAll(() => Home());
       } else if (jsonData['code'] == '000') {
