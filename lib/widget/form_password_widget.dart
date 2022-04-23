@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 class FormPasswordWidget extends StatelessWidget {
   final String tittle;
-  const FormPasswordWidget({Key? key, required this.tittle}) : super(key: key);
+  final TextEditingController controller;
+  const FormPasswordWidget(
+      {Key? key, required this.tittle, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
       child: TextFormField(
+        controller: controller,
         obscureText: true,
         textAlign: TextAlign.center,
         decoration: InputDecoration(

@@ -3,6 +3,8 @@
 
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get/get.dart';
 import 'package:joki_apps/module/auth/login/view/login.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,13 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       PopupMenuItem(
                         child: TextButton(
-                          onPressed: () {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Login(),
-                                ),
-                                (route) => false);
+                          onPressed: () async {
+                            await FlutterSecureStorage().deleteAll();
+                            Get.off(() => Login());
                           },
                           child: Text('Log Out'),
                         ),

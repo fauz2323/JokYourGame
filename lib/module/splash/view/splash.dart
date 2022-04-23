@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get/get.dart';
 import 'package:joki_apps/module/auth/login/view/login.dart';
+import 'package:joki_apps/module/home/view/home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -15,13 +18,14 @@ class _SplashState extends State<Splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Login(),
-        ),
-      );
+    final storage = FlutterSecureStorage();
+    Timer(Duration(seconds: 3), () async {
+      var data = await storage.read(key: 'token');
+      if (data == null) {
+        Get.offAll(() => Login());
+      } else {
+        Get.offAll(() => Home());
+      }
     });
   }
 

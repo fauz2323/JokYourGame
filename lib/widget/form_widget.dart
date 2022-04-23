@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 class FormWidgetNormal extends StatelessWidget {
   final String tittle;
-  const FormWidgetNormal({Key? key, required this.tittle}) : super(key: key);
+  final TextEditingController controller;
+  const FormWidgetNormal(
+      {Key? key, required this.tittle, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
       child: TextFormField(
+        controller: controller,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText: tittle,
