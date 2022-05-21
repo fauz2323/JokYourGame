@@ -57,7 +57,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                       PopupMenuItem(
                         child: TextButton(
-                          onPressed: () async {},
+                          onPressed: () {
+                            homeCOntroller.logout();
+                          },
                           child: Text('Log Out'),
                         ),
                       ),

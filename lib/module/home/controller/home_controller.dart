@@ -43,6 +43,11 @@ class HomeCOntroller extends GetxController {
     loading.value = false;
   }
 
+  logout() async {
+    await storage.deleteAll();
+    Get.offAllNamed('/login');
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit
