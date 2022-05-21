@@ -1,33 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:joki_apps/module/auth/login/view/login.dart';
-import 'package:joki_apps/module/home/view/home.dart';
+import 'package:joki_apps/module/splash/controller/splash_controller.dart';
 
-class Splash extends StatefulWidget {
+class Splash extends GetView<SplashController> {
   const Splash({Key? key}) : super(key: key);
-
-  @override
-  State<Splash> createState() => _SplashState();
-}
-
-class _SplashState extends State<Splash> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    final storage = FlutterSecureStorage();
-    Timer(Duration(seconds: 3), () async {
-      var data = await storage.read(key: 'token');
-      if (data == null) {
-        Get.offAll(() => Login());
-      } else {
-        Get.offAll(() => Home());
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

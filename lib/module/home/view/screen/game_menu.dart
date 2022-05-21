@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:joki_apps/model/game_list.dart';
+import 'package:joki_apps/util/api.dart';
 
 class GameMenu extends StatelessWidget {
-  const GameMenu({Key? key}) : super(key: key);
+  final GameListModel gameListModel;
+  const GameMenu({Key? key, required this.gameListModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,33 +35,14 @@ class GameMenu extends StatelessWidget {
               crossAxisSpacing: 5,
               crossAxisCount: 2,
               // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                MenuGameWidget(
-                  uri:
-                      "https://www.xda-developers.com/files/2018/01/Google-Play-Store-Feature-Image-Background-Colour.png",
-                  tittle: "Free Fire",
-                ),
-                MenuGameWidget(
-                  uri:
-                      "https://www.xda-developers.com/files/2018/01/Google-Play-Store-Feature-Image-Background-Colour.png",
-                  tittle: "Mobile Legend",
-                ),
-                MenuGameWidget(
-                  uri:
-                      "https://www.xda-developers.com/files/2018/01/Google-Play-Store-Feature-Image-Background-Colour.png",
-                  tittle: "Call Of Duty",
-                ),
-                MenuGameWidget(
-                  uri:
-                      "https://www.xda-developers.com/files/2018/01/Google-Play-Store-Feature-Image-Background-Colour.png",
-                  tittle: "Pokemon",
-                ),
-                MenuGameWidget(
-                  uri:
-                      "https://www.xda-developers.com/files/2018/01/Google-Play-Store-Feature-Image-Background-Colour.png",
-                  tittle: "Genshin Impact",
-                ),
-              ],
+              children: gameListModel.data
+                  .map(
+                    (e) => MenuGameWidget(
+                      uri: Api.baseUrl + '/storage/' + e.imagePath,
+                      tittle: e.name,
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         ],
@@ -81,7 +66,7 @@ class MenuGameWidget extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          print("object");
+          Get.offNamed('/product', arguments: tittle);
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),

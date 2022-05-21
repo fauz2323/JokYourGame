@@ -1,21 +1,14 @@
-// ignore_for_file: prefer_const_constructors
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:joki_apps/module/auth/login/view/login.dart';
+import 'package:joki_apps/module/home/controller/home_controller.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key, required this.homeCOntroller}) : super(key: key);
+  final HomeCOntroller homeCOntroller;
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  var dropDown = "-";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Hello, Users",
+                "Hello, ${homeCOntroller.authModel.name}",
                 style: TextStyle(fontSize: 25),
               ),
               PopupMenuButton(
@@ -44,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       PopupMenuItem(
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.offAllNamed('/topup');
+                          },
                           child: Text('Top Up Fund(s)'),
                         ),
                       ),
@@ -62,10 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       PopupMenuItem(
                         child: TextButton(
-                          onPressed: () async {
-                            await FlutterSecureStorage().deleteAll();
-                            Get.off(() => Login());
-                          },
+                          onPressed: () async {},
                           child: Text('Log Out'),
                         ),
                       ),
@@ -99,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Your Balance : xxx",
+                      "Your Balance : ${homeCOntroller.authModel.data.balance}",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
