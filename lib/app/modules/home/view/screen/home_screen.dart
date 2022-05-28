@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:joki_apps/app/modules/auth/login/view/login.dart';
 import 'package:joki_apps/app/modules/home/controller/home_controller.dart';
 
+import '../widget/cardhome_widget.dart';
+import '../widget/popupmenu_widget.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key, required this.homeCOntroller}) : super(key: key);
   final HomeCOntroller homeCOntroller;
@@ -26,123 +29,107 @@ class HomeScreen extends StatelessWidget {
                 "Hello, ${homeCOntroller.authModel.name}",
                 style: TextStyle(fontSize: 25),
               ),
-              PopupMenuButton(
-                icon: Icon(Icons.people_alt_rounded),
-                itemBuilder: ((context) => [
-                      PopupMenuItem(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text('Edit Profile'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        child: TextButton(
-                          onPressed: () {
-                            Get.offAllNamed('/topup');
-                          },
-                          child: Text('Top Up Fund(s)'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text('Message(s)'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text('Order(s)'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        child: TextButton(
-                          onPressed: () {
-                            homeCOntroller.logout();
-                          },
-                          child: Text('Log Out'),
-                        ),
-                      ),
-                    ]),
-              ),
+              PopUpMenuWidget(homeCOntroller: homeCOntroller),
             ],
           ),
           SizedBox(
             height: 20,
           ),
-          Container(
-            padding: EdgeInsets.all(15),
-            height: 150,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
-              ),
-              image: DecorationImage(
-                image: AssetImage(
-                  'image/bg-card.jpg',
-                ),
-                fit: BoxFit.fill,
-              ),
-            ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Your Balance : ${homeCOntroller.authModel.data.balance}",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Personal User",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Join Date",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "12-12-2022",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Text(
-                  "Kepuasan Pelanggan adalah yang utama",
-                  style: TextStyle(color: Colors.white),
-                )
-              ],
-            ),
-          ),
+          CardHome(homeCOntroller: homeCOntroller),
           SizedBox(
             height: 20,
           ),
           Text("Menu Apps"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MenuItems(
+                tap: () {},
+                tittle: "All Product",
+                icon: Icons.production_quantity_limits,
+              ),
+              MenuItems(
+                tap: () {},
+                tittle: "History Topup",
+                icon: Icons.history,
+              ),
+              MenuItems(
+                tap: () {},
+                tittle: "Status Order",
+                icon: Icons.double_arrow,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MenuItems(
+                tap: () {},
+                tittle: "Setting",
+                icon: Icons.settings,
+              ),
+              MenuItems(
+                tap: () {},
+                tittle: "Chat",
+                icon: Icons.message,
+              ),
+              MenuItems(
+                tap: () => homeCOntroller.logout(),
+                tittle: "LogOut",
+                icon: Icons.logout,
+              ),
+            ],
+          )
         ],
+      ),
+    );
+  }
+}
+
+class MenuItems extends StatelessWidget {
+  const MenuItems({
+    Key? key,
+    required this.tap,
+    required this.icon,
+    required this.tittle,
+  }) : super(key: key);
+  final VoidCallback tap;
+  final IconData icon;
+  final String tittle;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: tap,
+      child: Container(
+        width: Get.width * 25 / 100,
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              child: Icon(
+                icon,
+                size: 50,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                tittle,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.clip,
+                style: TextStyle(fontWeight: FontWeight.w700),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

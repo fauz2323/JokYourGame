@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -56,8 +57,12 @@ class Product extends GetView<ProductController> {
                                   padding: EdgeInsets.all(10),
                                   child: Row(
                                     children: [
-                                      Image.network(
-                                          'https://images.samsung.com/is/image/samsung/assets/uk/support/lucidcx/wherecanifindtheplaystore.png'),
+                                      CachedNetworkImage(
+                                        imageUrl:
+                                            'https://images.samsung.com/is/image/samsung/assets/uk/support/lucidcx/wherecanifindtheplaystore.png',
+                                        placeholder: (context, uri) =>
+                                            CircularProgressIndicator(),
+                                      ),
                                       Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,

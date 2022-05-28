@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:joki_apps/app/model/game_list.dart';
@@ -75,9 +76,10 @@ class MenuGameWidget extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(),
                 decoration: const BoxDecoration(),
-                child: Image.network(
-                  uri,
-                  fit: BoxFit.fill,
+                child: CachedNetworkImage(
+                  imageUrl: uri,
+                  placeholder: (context, uri) => CircularProgressIndicator(),
+                  errorWidget: (context, uri, error) => Icon(Icons.error),
                 ),
               ),
               SizedBox(

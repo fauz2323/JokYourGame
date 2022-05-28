@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -36,9 +37,11 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                     margin: EdgeInsets.all(2),
                                     width: Get.width,
                                     decoration: BoxDecoration(),
-                                    child: Image.network(
-                                      'https://cdn.arstechnica.net/wp-content/uploads/2020/09/Google-Play-Store-logo.jpg',
-                                      fit: BoxFit.cover,
+                                    child: CachedNetworkImage(
+                                      imageUrl:
+                                          "https://cdn.arstechnica.net/wp-content/uploads/2020/09/Google-Play-Store-logo.jpg",
+                                      placeholder: (context, url) => Center(
+                                          child: CircularProgressIndicator()),
                                     ),
                                   );
                                 },
@@ -72,21 +75,138 @@ class ProductDetailView extends GetView<ProductDetailController> {
                   ),
                   Container(
                     color: Colors.white,
-                    height: Get.height * 40 / 100,
+                    height: Get.height * 12 / 100,
                     width: Get.width,
+                    padding: EdgeInsets.only(left: 30, top: 10, bottom: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Dengan Joki Profesional",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(6),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0.4,
+                                      blurRadius: 0.4,
+                                    ),
+                                  ]),
+                              child: Text("Pengalaman Terjamin"),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(6),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0.4,
+                                      blurRadius: 0.4,
+                                    ),
+                                  ]),
+                              child: Text("Pasti Puas"),
+                            )
+                          ],
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 30, top: 10, right: 30),
+                    width: Get.width,
+                    height: Get.height * 10 / 100,
+                    decoration: BoxDecoration(color: Colors.white),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Icon(
+                            Icons.people_alt_rounded,
+                            size: 40,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "JokYourGame",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700, fontSize: 17),
+                              ),
+                              Text(
+                                "Best assistant game platform",
+                                style: TextStyle(fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.message,
+                            color: Colors.blue,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 30, right: 30, top: 10),
+                    decoration: BoxDecoration(color: Colors.white),
+                    width: Get.width,
+                    height: Get.height * 20 / 100,
                   )
                 ],
               ),
             ),
-            SizedBox(
-              width: Get.width * 90 / 100,
+            Container(
+              padding: EdgeInsets.only(left: 30, right: 30),
+              decoration: BoxDecoration(color: Colors.white),
+              width: Get.width,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {},
                 child: Text("Pesan Jasa"),
               ),
             ),
-            SizedBox(
+            Container(
+              color: Colors.white,
               height: 10,
             )
           ],
