@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:joki_apps/route/page_route.dart';
+import 'package:joki_apps/app/routes/app_pages.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
