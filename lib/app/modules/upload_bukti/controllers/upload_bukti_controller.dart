@@ -35,7 +35,10 @@ class UploadBuktiController extends GetxController {
     print(ress.statusCode);
     ress.stream.transform(utf8.decoder).listen((event) {
       print(event);
-      Get.snackbar("message", ress.statusCode.toString());
+      if (ress.statusCode == 200) {
+        Get.offAllNamed('topup');
+        Get.snackbar("message", "Success");
+      }
     });
   }
 
