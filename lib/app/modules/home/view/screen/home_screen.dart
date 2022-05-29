@@ -107,7 +107,7 @@ class MenuItems extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
@@ -116,7 +116,7 @@ class MenuItems extends StatelessWidget {
               ),
               child: Icon(
                 icon,
-                size: 50,
+                size: 40,
               ),
             ),
             Padding(
