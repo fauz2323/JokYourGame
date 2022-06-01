@@ -10,6 +10,8 @@ import '../modules/listAllTopup/bindings/list_all_topup_binding.dart';
 import '../modules/listAllTopup/views/list_all_topup_view.dart';
 import '../modules/list_product/bindings/product_bindings.dart';
 import '../modules/list_product/view/product.dart';
+import '../modules/orderRecipe/bindings/order_recipe_binding.dart';
+import '../modules/orderRecipe/views/order_recipe_view.dart';
 import '../modules/pending-topup/bindings/pending_topup_binding.dart';
 import '../modules/pending-topup/views/pending_topup_view.dart';
 import '../modules/product_detail/bindings/product_detail_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.LIST_ALL_TOPUP,
       page: () => ListAllTopupView(),
       binding: ListAllTopupBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORDER_RECIPE,
+      page: () => OrderRecipeView(),
+      binding: OrderRecipeBinding(),
     ),
   ];
 }

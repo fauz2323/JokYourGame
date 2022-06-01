@@ -201,7 +201,9 @@ class ProductDetailView extends GetView<ProductDetailController> {
               width: Get.width,
               height: 40,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed('order-recipe');
+                },
                 child: Text("Pesan Jasa"),
               ),
             ),
