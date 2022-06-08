@@ -4,6 +4,8 @@ import '../modules/auth/login/bindings/login_binding.dart';
 import '../modules/auth/login/view/login.dart';
 import '../modules/auth/register/bindings/register_bindings.dart';
 import '../modules/auth/register/view/register.dart';
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
 import '../modules/home/bindings/home_bindings.dart';
 import '../modules/home/view/home.dart';
 import '../modules/listAllTopup/bindings/list_all_topup_binding.dart';
@@ -85,6 +87,11 @@ class AppPages {
       name: _Paths.ORDER_RECIPE,
       page: () => OrderRecipeView(),
       binding: OrderRecipeBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => ChatView(),
+      binding: ChatBinding(),
     ),
   ];
 }

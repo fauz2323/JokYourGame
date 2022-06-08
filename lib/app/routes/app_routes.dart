@@ -14,6 +14,7 @@ abstract class Routes {
   static const PENDING_TOPUP = _Paths.PENDING_TOPUP;
   static const LIST_ALL_TOPUP = _Paths.LIST_ALL_TOPUP;
   static const ORDER_RECIPE = _Paths.ORDER_RECIPE;
+  static const CHAT = _Paths.CHAT;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const PENDING_TOPUP = '/pending-topup';
   static const LIST_ALL_TOPUP = '/list-all-topup';
   static const ORDER_RECIPE = '/order-recipe';
+  static const CHAT = '/chat';
 }

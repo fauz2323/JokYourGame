@@ -49,7 +49,9 @@ class HomeScreen extends StatelessWidget {
                 icon: Icons.production_quantity_limits,
               ),
               MenuItems(
-                tap: () {},
+                tap: () {
+                  Get.toNamed('list-all-topup');
+                },
                 tittle: "History Topup",
                 icon: Icons.history,
               ),
@@ -69,7 +71,9 @@ class HomeScreen extends StatelessWidget {
                 icon: Icons.settings,
               ),
               MenuItems(
-                tap: () {},
+                tap: () {
+                  Get.toNamed('/chat');
+                },
                 tittle: "Chat",
                 icon: Icons.message,
               ),
