@@ -28,7 +28,7 @@ class Product extends GetView<ProductController> {
                 : Container(
                     padding: EdgeInsets.all(10),
                     child: ListView(
-                      children: controller.productModel.list
+                      children: controller.gameListModelNew.list
                           .map(
                             (e) => InkWell(
                               onTap: () {
@@ -59,7 +59,8 @@ class Product extends GetView<ProductController> {
                                     children: [
                                       CachedNetworkImage(
                                         imageUrl:
-                                            'https://images.samsung.com/is/image/samsung/assets/uk/support/lucidcx/wherecanifindtheplaystore.png',
+                                            'http://10.0.2.2:8000/storage/' +
+                                                e.image.first.path,
                                         placeholder: (context, uri) =>
                                             CircularProgressIndicator(),
                                       ),

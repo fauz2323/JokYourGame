@@ -39,7 +39,7 @@ class GameMenu extends StatelessWidget {
               children: gameListModel.data
                   .map(
                     (e) => MenuGameWidget(
-                      uri: Api.baseUrl + '/storage/' + e.imagePath,
+                      uri: 'http://10.0.2.2:8000/storage/' + e.imagePath,
                       tittle: e.name,
                     ),
                   )

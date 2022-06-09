@@ -3,6 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:joki_apps/app/modules/product_detail/views/widget/detail_atas.dart';
+import 'package:joki_apps/app/modules/product_detail/views/widget/hero_porto.dart';
+import 'package:joki_apps/app/modules/product_detail/views/widget/widget_profesional.dart';
+import 'package:joki_apps/app/modules/product_detail/views/widget/widget_seller.dart';
 
 import '../controllers/product_detail_controller.dart';
 
@@ -11,209 +15,120 @@ class ProductDetailView extends GetView<ProductDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ProductDetailView'),
+          title: Text('Product detail'),
           elevation: 0,
           centerTitle: true,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        body: Obx(
+          () => controller.isLoading.value
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          DetailProductAtas(controller: controller),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          WidgetJokiProfesional(),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          WidgetSeller(),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          HeroWidgetPorto(controller: controller)
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 30, right: 30),
+                      decoration: BoxDecoration(color: Colors.white),
+                      width: Get.width,
+                      height: 40,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Get.toNamed('order-recipe');
+
+                          controller.confirm(
+                              context, "Paket Joki 01", "Deskripsi", '140.000');
+                        },
+                        child: Text("Pesan Jasa"),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.white,
+                      height: 10,
+                    )
+                  ],
+                ),
+        ));
+  }
+}
+
+class HeroWidgetPorto extends StatelessWidget {
+  const HeroWidgetPorto({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final ProductDetailController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.only(left: 30, right: 30, top: 10),
+        decoration: BoxDecoration(color: Colors.white),
+        height: Get.height * 20 / 100,
+        child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                child: Text(
+                  "Portofolio",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+            ),
             Expanded(
               child: ListView(
+                scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(color: Colors.white),
-                    height: Get.height * 40 / 100,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: Get.height * 30 / 100,
-                          child: CarouselSlider(
-                            options: CarouselOptions(height: Get.height),
-                            items: [1, 2, 3, 4, 5, 6].map((i) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    margin: EdgeInsets.all(2),
-                                    width: Get.width,
-                                    decoration: BoxDecoration(),
-                                    child: CachedNetworkImage(
-                                      imageUrl:
-                                          "https://cdn.arstechnica.net/wp-content/uploads/2020/09/Google-Play-Store-logo.jpg",
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                    ),
-                                  );
-                                },
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 30, top: 20),
-                            child: Text(
-                              "Rp 24.000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 19),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 30, top: 5),
-                            child: Text("Joki Package 1 Premium"),
+                  Row(
+                    children: controller.imageProductModel.image
+                        .map(
+                          (e) => GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) {
+                                return HeroPortofolio(
+                                  uri: 'http://10.0.2.2:8000/storage/' + e.path,
+                                );
+                              }));
+                            },
+                            child: Container(
+                                margin: const EdgeInsets.all(10),
+                                child: Hero(
+                                  tag: 'porto-hero',
+                                  child: CachedNetworkImage(
+                                    imageUrl: 'http://10.0.2.2:8000/storage/' +
+                                        e.path,
+                                  ),
+                                )),
                           ),
                         )
-                      ],
-                    ),
+                        .toList(),
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    color: Colors.white,
-                    height: Get.height * 12 / 100,
-                    width: Get.width,
-                    padding: EdgeInsets.only(left: 30, top: 10, bottom: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Dengan Joki Profesional",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.4),
-                                      spreadRadius: 0.4,
-                                      blurRadius: 0.4,
-                                    ),
-                                  ]),
-                              child: Text("Pengalaman Terjamin"),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.4),
-                                      spreadRadius: 0.4,
-                                      blurRadius: 0.4,
-                                    ),
-                                  ]),
-                              child: Text("Pasti Puas"),
-                            )
-                          ],
-                        ),
-                        Spacer()
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 30, top: 10, right: 30),
-                    width: Get.width,
-                    height: Get.height * 10 / 100,
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Icon(
-                            Icons.people_alt_rounded,
-                            size: 40,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "JokYourGame",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700, fontSize: 17),
-                              ),
-                              Text(
-                                "Best assistant game platform",
-                                style: TextStyle(fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.message,
-                            color: Colors.blue,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 30, right: 30, top: 10),
-                    decoration: BoxDecoration(color: Colors.white),
-                    width: Get.width,
-                    height: Get.height * 20 / 100,
-                  )
                 ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 30, right: 30),
-              decoration: BoxDecoration(color: Colors.white),
-              width: Get.width,
-              height: 40,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Get.toNamed('order-recipe');
-
-                  controller.confirm(
-                      context, "Paket Joki 01", "Deskripsi", '140.000');
-                },
-                child: Text("Pesan Jasa"),
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              height: 10,
-            )
           ],
         ));
   }
