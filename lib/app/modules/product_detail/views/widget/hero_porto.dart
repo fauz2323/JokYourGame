@@ -14,7 +14,7 @@ class HeroPortofolio extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Center(
             child: Hero(
-              tag: 'tag',
+              tag: 'porto-hero',
               child: CachedNetworkImage(
                 imageUrl: uri,
                 placeholder: (BuildContext context, String) =>

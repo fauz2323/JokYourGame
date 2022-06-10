@@ -1,17 +1,21 @@
 class ProductDetailModel {
   ProductDetailModel({
     required this.data,
+    required this.game,
   });
 
   Data data;
+  String game;
 
   factory ProductDetailModel.fromJson(Map<String, dynamic> json) =>
       ProductDetailModel(
         data: Data.fromJson(json["data"]),
+        game: json['game'],
       );
 
   Map<String, dynamic> toJson() => {
         "data": data.toJson(),
+        "game": game,
       };
 }
 

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Api {
-  static var baseUrl = 'http://192.168.5.13:8000';
-  static var imageUrl = 'http://192.168.5.13:8000';
+  static var baseUrl = 'http://10.0.2.2:8000';
+  static var imageUrl = 'http://10.0.2.2:8000';
   var token;
 
   // ignore: constant_identifier_names

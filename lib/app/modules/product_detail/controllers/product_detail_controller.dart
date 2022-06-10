@@ -19,6 +19,7 @@ class ProductDetailController extends GetxController {
   late PortofolioModel portofolioModel;
   late ImageProductModel imageProductModel;
   var api = Api();
+  TextEditingController note = TextEditingController();
   var isLoading = true.obs;
 
   final count = 0.obs;
@@ -116,6 +117,7 @@ class ProductDetailController extends GetxController {
                   children: [
                     Text("Order Note"),
                     TextFormField(
+                      controller: note,
                       minLines: 6,
                       maxLines: 6,
                       decoration: InputDecoration(
@@ -168,6 +170,21 @@ class ProductDetailController extends GetxController {
             ],
           ),
         );
+      },
+    );
+  }
+
+  makeOrder() async {
+    Map body = {
+      'id_product': productDetailModel.data.id,
+      'note': note.text,
+    };
+    final makeOrder = await http
+        .post(Uri.parse('uri'), body: body, headers: api.getHeaderPost(token))
+        .timeout(
+      Duration(seconds: 10),
+      onTimeout: () {
+        return http.Response('error', 500);
       },
     );
   }
