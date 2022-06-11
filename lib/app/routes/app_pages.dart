@@ -12,6 +12,8 @@ import '../modules/listAllTopup/bindings/list_all_topup_binding.dart';
 import '../modules/listAllTopup/views/list_all_topup_view.dart';
 import '../modules/list_product/bindings/product_bindings.dart';
 import '../modules/list_product/view/product.dart';
+import '../modules/order-list/bindings/order_list_binding.dart';
+import '../modules/order-list/views/order_list_view.dart';
 import '../modules/orderRecipe/bindings/order_recipe_binding.dart';
 import '../modules/orderRecipe/views/order_recipe_view.dart';
 import '../modules/pending-topup/bindings/pending_topup_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.CHAT,
       page: () => ChatView(),
       binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORDER_LIST,
+      page: () => OrderListView(),
+      binding: OrderListBinding(),
     ),
   ];
 }

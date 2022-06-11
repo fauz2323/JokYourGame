@@ -44,7 +44,9 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuItems(
-                tap: () {},
+                tap: () {
+                  Get.offNamed('/product', arguments: 'all');
+                },
                 tittle: "All Product",
                 icon: Icons.production_quantity_limits,
               ),
@@ -56,7 +58,9 @@ class HomeScreen extends StatelessWidget {
                 icon: Icons.history,
               ),
               MenuItems(
-                tap: () {},
+                tap: () {
+                  Get.toNamed('order-list');
+                },
                 tittle: "Status Order",
                 icon: Icons.double_arrow,
               ),

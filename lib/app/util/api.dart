@@ -20,6 +20,8 @@ class Api {
   static Uri allPending = Uri.parse(baseUrl + '/api/topup-allPending');
   static Uri portofolio = Uri.parse(baseUrl + '/api/detail-product-porto');
   static Uri imageProduct = Uri.parse(baseUrl + '/api/detail-product-getImage');
+  static Uri makeOrder = Uri.parse(baseUrl + '/api/make-order');
+  static Uri orderList = Uri.parse(baseUrl + '/api/list-order');
 
   getHeaderPost(var token) {
     Map<String, String> data = {

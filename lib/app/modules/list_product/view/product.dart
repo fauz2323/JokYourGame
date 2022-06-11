@@ -58,11 +58,16 @@ class Product extends GetView<ProductController> {
                                   child: Row(
                                     children: [
                                       CachedNetworkImage(
+                                        width: Get.width * 40 / 100,
+                                        height: Get.height * 15 / 100,
                                         imageUrl:
                                             'http://10.0.2.2:8000/storage/' +
                                                 e.image.first.path,
                                         placeholder: (context, uri) =>
                                             CircularProgressIndicator(),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
                                       ),
                                       Column(
                                         mainAxisAlignment:

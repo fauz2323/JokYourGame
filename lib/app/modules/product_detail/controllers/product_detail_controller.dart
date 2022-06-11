@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:joki_apps/app/model/image_product_model.dart';
 import 'dart:convert';
 
+import '../../../model/make_order_model.dart';
 import '../../../model/potofolio_model.dart';
 import '../../../model/product_detail_model.dart';
 import '../../../util/api.dart';
@@ -18,6 +19,7 @@ class ProductDetailController extends GetxController {
   late ProductDetailModel productDetailModel;
   late PortofolioModel portofolioModel;
   late ImageProductModel imageProductModel;
+  late MakeOrderModel makeOrderModel;
   var api = Api();
   TextEditingController note = TextEditingController();
   var isLoading = true.obs;
@@ -164,8 +166,7 @@ class ProductDetailController extends GetxController {
               SizedBox(
                 width: Get.width * 90 / 100,
                 child: ElevatedButton(
-                    onPressed: () => Get.toNamed('/order-recipe'),
-                    child: Text("Confirm")),
+                    onPressed: () => makeOrder(), child: Text("Confirm")),
               )
             ],
           ),
@@ -175,18 +176,24 @@ class ProductDetailController extends GetxController {
   }
 
   makeOrder() async {
-    Map body = {
-      'id_product': productDetailModel.data.id,
-      'note': note.text,
-    };
-    final makeOrder = await http
-        .post(Uri.parse('uri'), body: body, headers: api.getHeaderPost(token))
-        .timeout(
-      Duration(seconds: 10),
-      onTimeout: () {
-        return http.Response('error', 500);
-      },
-    );
+    Get.back();
+    isLoading.value = true;
+    // Map body = {
+    //   'id_product': productDetailModel.data.id,
+    //   'note': note.text,
+    // };
+    // final makeOrder = await http
+    //     .post(Uri.parse('uri'), body: body, headers: api.getHeaderPost(token))
+    //     .timeout(
+    //   Duration(seconds: 10),
+    //   onTimeout: () {
+    //     return http.Response('error', 500);
+    //   },
+    // );
+    // var jsonMakeOrder = json.decode(makeOrder.body);
+    // if (makeOrder.statusCode == 200) {
+    //   makeOrderModel = MakeOrderModel.fromJson(jsonMakeOrder);
+    // } else {}
   }
 
   @override
