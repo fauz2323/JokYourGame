@@ -178,22 +178,26 @@ class ProductDetailController extends GetxController {
   makeOrder() async {
     Get.back();
     isLoading.value = true;
-    // Map body = {
-    //   'id_product': productDetailModel.data.id,
-    //   'note': note.text,
-    // };
-    // final makeOrder = await http
-    //     .post(Uri.parse('uri'), body: body, headers: api.getHeaderPost(token))
-    //     .timeout(
-    //   Duration(seconds: 10),
-    //   onTimeout: () {
-    //     return http.Response('error', 500);
-    //   },
-    // );
-    // var jsonMakeOrder = json.decode(makeOrder.body);
-    // if (makeOrder.statusCode == 200) {
-    //   makeOrderModel = MakeOrderModel.fromJson(jsonMakeOrder);
-    // } else {}
+    Map body = {
+      'id_product': productDetailModel.data.id.toString(),
+      'note': note.text,
+    };
+    final makeOrder = await http
+        .post(Api.makeOrder, body: body, headers: api.getHeaderPost(token))
+        .timeout(
+      Duration(seconds: 10),
+      onTimeout: () {
+        return http.Response('error', 500);
+      },
+    );
+    var jsonMakeOrder = json.decode(makeOrder.body);
+    if (makeOrder.statusCode == 200) {
+      makeOrderModel = MakeOrderModel.fromJson(jsonMakeOrder);
+      Get.offAllNamed('/order-recipe',
+          arguments: makeOrderModel.orderDetail.id);
+    } else {
+      Get.back();
+    }
   }
 
   @override

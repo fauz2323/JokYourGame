@@ -22,6 +22,9 @@ class Api {
   static Uri imageProduct = Uri.parse(baseUrl + '/api/detail-product-getImage');
   static Uri makeOrder = Uri.parse(baseUrl + '/api/make-order');
   static Uri orderList = Uri.parse(baseUrl + '/api/list-order');
+  static Uri sendMessage = Uri.parse(baseUrl + '/api/send-message');
+  static Uri getMessage = Uri.parse(baseUrl + '/api/get-message');
+  static Uri getRecipe = Uri.parse(baseUrl + '/api/detail-order');
 
   getHeaderPost(var token) {
     Map<String, String> data = {
