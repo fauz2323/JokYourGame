@@ -32,13 +32,17 @@ class PopUpMenuWidget extends StatelessWidget {
             ),
             PopupMenuItem(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed('/chat');
+                },
                 child: Text('Message(s)'),
               ),
             ),
             PopupMenuItem(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed('order-list');
+                },
                 child: Text('Order(s)'),
               ),
             ),
