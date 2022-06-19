@@ -24,6 +24,7 @@ class OrderListView extends GetView<OrderListController> {
                     children: controller.orderListModel.orderList
                         .map(
                           (e) => OrderCard(
+                            review: e.review,
                             status: e.status,
                             name: e.product.productName,
                             path:
@@ -31,7 +32,8 @@ class OrderListView extends GetView<OrderListController> {
                             date:
                                 "${e.createdAt.day} - ${e.createdAt.month} - ${e.createdAt.year}",
                             price: e.price.toString(),
-                            route: () {},
+                            route: () => controller.review(context, e.productId,
+                                e.id, e.product.productName),
                           ),
                         )
                         .toList(),

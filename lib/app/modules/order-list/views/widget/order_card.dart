@@ -10,12 +10,14 @@ class OrderCard extends StatelessWidget {
     required this.name,
     required this.price,
     required this.route,
+    required this.review,
   }) : super(key: key);
   final String path;
   final String date;
   final String status;
   final String name;
   final String price;
+  final String review;
   final VoidCallback route;
 
   @override
@@ -93,26 +95,28 @@ class OrderCard extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(price),
               ),
-              GestureDetector(
-                onTap: route,
-                child: Container(
-                  padding:
-                      EdgeInsets.only(top: 6, bottom: 6, left: 20, right: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    "Beri Ulasan",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
+              status == 'selesai' && review == 'not'
+                  ? GestureDetector(
+                      onTap: route,
+                      child: Container(
+                        padding: EdgeInsets.only(
+                            top: 6, bottom: 6, left: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          "Beri Ulasan",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container(),
             ],
           )
         ],

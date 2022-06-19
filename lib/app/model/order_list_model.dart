@@ -30,12 +30,14 @@ class OrderList {
     required this.createdAt,
     required this.updatedAt,
     required this.product,
+    required this.review,
   });
 
   int id;
   int productId;
   int userId;
   String note;
+  String review;
   int price;
   String status;
   DateTime createdAt;
@@ -47,6 +49,7 @@ class OrderList {
         productId: json["product_id"],
         userId: json["user_id"],
         note: json["note"],
+        review: json['review'],
         price: json["price"],
         status: json["status"],
         createdAt: DateTime.parse(json["created_at"]),

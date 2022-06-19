@@ -68,6 +68,9 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                       fontWeight: FontWeight.w700,
                                       fontSize: 17),
                                 ),
+                                SizedBox(
+                                  height: 30,
+                                ),
                               ],
                             ),
                           )

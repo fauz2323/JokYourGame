@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/Review/bindings/review_binding.dart';
+import '../modules/Review/views/review_view.dart';
 import '../modules/auth/login/bindings/login_binding.dart';
 import '../modules/auth/login/view/login.dart';
 import '../modules/auth/register/bindings/register_bindings.dart';
@@ -99,6 +101,11 @@ class AppPages {
       name: _Paths.ORDER_LIST,
       page: () => OrderListView(),
       binding: OrderListBinding(),
+    ),
+    GetPage(
+      name: _Paths.REVIEW,
+      page: () => ReviewView(),
+      binding: ReviewBinding(),
     ),
   ];
 }
