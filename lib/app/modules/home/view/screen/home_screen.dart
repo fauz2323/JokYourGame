@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuItems(
-                tap: () {},
+                tap: () => Get.toNamed('setting'),
                 tittle: "Setting",
                 icon: Icons.settings,
               ),

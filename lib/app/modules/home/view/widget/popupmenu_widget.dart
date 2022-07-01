@@ -18,7 +18,7 @@ class PopUpMenuWidget extends StatelessWidget {
       itemBuilder: ((context) => [
             PopupMenuItem(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () => Get.toNamed('setting'),
                 child: Text('Edit Profile'),
               ),
             ),

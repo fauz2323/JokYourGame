@@ -17,6 +17,7 @@ abstract class Routes {
   static const CHAT = _Paths.CHAT;
   static const ORDER_LIST = _Paths.ORDER_LIST;
   static const REVIEW = _Paths.REVIEW;
+  static const SETTING = _Paths.SETTING;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const CHAT = '/chat';
   static const ORDER_LIST = '/order-list';
   static const REVIEW = '/review';
+  static const SETTING = '/setting';
 }

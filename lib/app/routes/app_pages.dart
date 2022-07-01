@@ -22,6 +22,8 @@ import '../modules/pending-topup/bindings/pending_topup_binding.dart';
 import '../modules/pending-topup/views/pending_topup_view.dart';
 import '../modules/product_detail/bindings/product_detail_binding.dart';
 import '../modules/product_detail/views/product_detail_view.dart';
+import '../modules/setting/bindings/setting_binding.dart';
+import '../modules/setting/views/setting_view.dart';
 import '../modules/splash/bindings/splas_bindings.dart';
 import '../modules/splash/view/splash.dart';
 import '../modules/topup/bindings/topup_bindings.dart';
@@ -106,6 +108,11 @@ class AppPages {
       name: _Paths.REVIEW,
       page: () => ReviewView(),
       binding: ReviewBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => SettingView(),
+      binding: SettingBinding(),
     ),
   ];
 }

@@ -27,6 +27,8 @@ class Api {
   static Uri getRecipe = Uri.parse(baseUrl + '/api/detail-order');
   static Uri sendReview = Uri.parse(baseUrl + '/api/product-review');
   static Uri reviewList = Uri.parse(baseUrl + '/api/detail-review');
+  static Uri getDataUser = Uri.parse(baseUrl + '/api/getDataUser');
+  static Uri changePass = Uri.parse(baseUrl + '/api/changePass');
 
   getHeaderPost(var token) {
     Map<String, String> data = {
