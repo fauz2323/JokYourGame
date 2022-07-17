@@ -131,8 +131,7 @@ class OrderListController extends GetxController {
       },
     );
 
-    await Future.delayed(Duration(seconds: 3));
-
+    print(sendReviewData.body);
     if (sendReviewData.statusCode == 200) {
       final getDataListOrder = await http
           .get(Api.orderList, headers: api.getHeaderGet(token))
