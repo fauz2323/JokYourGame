@@ -71,6 +71,43 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 SizedBox(
                                   height: 30,
                                 ),
+                                Column(
+                                  children: controller.reviewModel.review
+                                      .map((e) => Container(
+                                            margin: EdgeInsets.only(bottom: 8),
+                                            padding: EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(e.user.username),
+                                                    Text(
+                                                        "${e.createdAt.day} - ${e.createdAt.month} - ${e.createdAt.year}")
+                                                  ],
+                                                ),
+                                                Divider(
+                                                  color: Colors.black,
+                                                ),
+                                                Text(e.review),
+                                              ],
+                                            ),
+                                          ))
+                                      .toList()
+                                      .reversed
+                                      .toList(),
+                                )
                               ],
                             ),
                           )

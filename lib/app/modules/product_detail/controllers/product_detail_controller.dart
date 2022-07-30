@@ -9,6 +9,7 @@ import 'dart:convert';
 import '../../../model/make_order_model.dart';
 import '../../../model/potofolio_model.dart';
 import '../../../model/product_detail_model.dart';
+import '../../../model/review_model.dart';
 import '../../../util/api.dart';
 
 class ProductDetailController extends GetxController {
@@ -23,6 +24,7 @@ class ProductDetailController extends GetxController {
   var api = Api();
   TextEditingController note = TextEditingController();
   var isLoading = true.obs;
+  late ReviewModel reviewModel;
 
   final count = 0.obs;
   @override
@@ -61,15 +63,23 @@ class ProductDetailController extends GetxController {
       return http.Response('err', 500);
     });
 
+    final getReview = await http
+        .post(Api.reviewList, body: body, headers: api.getHeaderPost(token))
+        .timeout(Duration(seconds: 10), onTimeout: () {
+      return http.Response('err', 500);
+    });
+
     if (getDetailProduct.statusCode == 200) {
       var imageData = json.decode(getImageProduct.body);
       var jsonData = json.decode(getDetailProduct.body);
       var jsonDataPorto = json.decode(getDetailPorto.body);
+      var jsonDataReview = json.decode(getReview.body);
       print(jsonDataPorto);
 
       imageProductModel = ImageProductModel.fromJson(imageData);
       productDetailModel = ProductDetailModel.fromJson(jsonData);
       portofolioModel = PortofolioModel.fromJson(jsonDataPorto);
+      reviewModel = ReviewModel.fromJson(jsonDataReview);
 
       tittle.value = productDetailModel.data.productName;
       isLoading.value = false;
