@@ -32,10 +32,13 @@ class Login extends GetView<LoginController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              height: height * 20 / 100,
+                              height: Get.height * 10 / 100,
                             ),
-                            Text("JOK"),
-                            Text('Your Game'),
+                            Image.asset(
+                              'image/LOGO.png',
+                              width: Get.width * 60 / 100,
+                              color: Colors.blue,
+                            ),
                             SizedBox(
                               height: 40,
                             ),

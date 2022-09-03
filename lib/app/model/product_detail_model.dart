@@ -40,7 +40,7 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         id: json["id"],
-        gameId: json["game_id"],
+        gameId: int.parse(json["game_id"]),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],

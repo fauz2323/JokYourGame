@@ -32,7 +32,8 @@ class DetailProductAtas extends StatelessWidget {
                       width: Get.width,
                       decoration: BoxDecoration(),
                       child: CachedNetworkImage(
-                        imageUrl: "http://10.0.2.2:8000/storage/" + i.path,
+                        imageUrl:
+                            "https://www.jokyourgame.my.id/storage/" + i.path,
                         placeholder: (context, url) =>
                             Center(child: CircularProgressIndicator()),
                       ),

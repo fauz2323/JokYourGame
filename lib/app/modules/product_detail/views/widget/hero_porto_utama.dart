@@ -48,8 +48,9 @@ class HeroWidgetPorto extends StatelessWidget {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (_) {
                                     return HeroPortofolio(
-                                      uri: 'http://10.0.2.2:8000/storage/' +
-                                          e.path,
+                                      uri:
+                                          'https://www.jokyourgame.my.id/storage/' +
+                                              e.path,
                                     );
                                   }));
                                 },
@@ -59,7 +60,7 @@ class HeroWidgetPorto extends StatelessWidget {
                                       tag: 'porto-hero',
                                       child: CachedNetworkImage(
                                         imageUrl:
-                                            'http://10.0.2.2:8000/storage/' +
+                                            'https://www.jokyourgame.my.id/storage/' +
                                                 e.path,
                                       ),
                                     )),

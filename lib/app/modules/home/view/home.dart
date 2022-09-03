@@ -49,7 +49,9 @@ class Home extends GetView<HomeCOntroller> {
                     HomeScreen(
                       homeCOntroller: controller,
                     ),
-                    AboutUs(),
+                    AboutUs(
+                      homeCOntroller: controller,
+                    ),
                   ],
                 ),
               ),

@@ -7,6 +7,8 @@ class Splash extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
@@ -14,15 +16,10 @@ class Splash extends GetView<SplashController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("LOGO"),
-            Text(
-              "JOK YOUR GAME",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-                fontSize: 26,
-              ),
-            )
+            Image.asset(
+              'image/LOGO.png',
+              width: w * 80 / 100,
+            ),
           ],
         ),
       ),

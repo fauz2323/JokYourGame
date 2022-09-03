@@ -61,7 +61,7 @@ class Product extends GetView<ProductController> {
                                         width: Get.width * 40 / 100,
                                         height: Get.height * 15 / 100,
                                         imageUrl:
-                                            'http://10.0.2.2:8000/storage/' +
+                                            'https://www.jokyourgame.my.id/storage/' +
                                                 e.image.first.path,
                                         placeholder: (context, uri) =>
                                             CircularProgressIndicator(),

@@ -43,7 +43,7 @@ class ListElement {
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         id: json["id"],
-        gameId: json["game_id"],
+        gameId: int.parse(json["game_id"]),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],
@@ -81,7 +81,7 @@ class Image {
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
         id: json["id"],
-        idProduct: json["id_product"],
+        idProduct: int.parse(json["id_product"]),
         path: json["path"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),

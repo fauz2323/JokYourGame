@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Api {
-  static var baseUrl = 'http://10.0.2.2:8000';
-  static var imageUrl = 'http://10.0.2.2:8000';
+  static var baseUrl = 'http://jokyourgame.my.id';
+  static var imageUrl = 'http://jokyourgame.my.id';
   var token;
 
   // ignore: constant_identifier_names
   static Uri AUTH = Uri.parse(baseUrl + '/api/auth');
+  static Uri about = Uri.parse(baseUrl + '/api/about-apps');
   static Uri GameList = Uri.parse(baseUrl + '/api/game');
   static Uri Product = Uri.parse(baseUrl + '/api/product-list');
   static Uri Topup = Uri.parse(baseUrl + '/api/topup');

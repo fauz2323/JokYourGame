@@ -19,7 +19,7 @@ class MessageModel {
 
   factory MessageModel.fromJson(Map<String, dynamic> json) => MessageModel(
         id: json["id"],
-        userId: json["user_id"],
+        userId: int.parse(json["user_id"]),
         from: json["from"],
         message: json["message"],
         status: json["status"],

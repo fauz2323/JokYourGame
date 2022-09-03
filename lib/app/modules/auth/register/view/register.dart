@@ -31,8 +31,11 @@ class Register extends GetView<RegisterCOntroller> {
                       padding: EdgeInsets.all(30),
                       child: Column(
                         children: [
-                          Text("Jok"),
-                          Text("Your Game"),
+                          Image.asset(
+                            'image/LOGO.png',
+                            width: Get.width * 60 / 100,
+                            color: Colors.blue,
+                          ),
                           SizedBox(
                             height: 60,
                           ),

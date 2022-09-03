@@ -14,6 +14,7 @@ class HomeCOntroller extends GetxController {
   late AuthModel authModel;
   late Map<String, String> header;
   var loading = true.obs;
+  var about = ''.obs;
 
   initial() async {
     token = await storage.read(key: 'token');
@@ -33,6 +34,20 @@ class HomeCOntroller extends GetxController {
           onTimeout: () => http.Response('error', 500),
         );
 
+    final getAbout = await http
+        .get(
+          Api.about,
+        )
+        .timeout(
+          Duration(seconds: 10),
+          onTimeout: () => http.Response('error', 500),
+        );
+
+    if (getDataUser.statusCode == 401) {
+      storage.deleteAll();
+      return Get.offAllNamed('login');
+    }
+
     if (getDataGame.statusCode == 500 || getDataUser.statusCode == 500) {
       Get.offAllNamed('login');
     }
@@ -40,6 +55,7 @@ class HomeCOntroller extends GetxController {
     var jsonDecodeGameList = json.decode(getDataGame.body);
     gameListModel = GameListModel.fromJson(jsonDecodeGameList);
     authModel = AuthModel.fromJson(json.decode(getDataUser.body));
+    about.value = json.decode(getAbout.body)['about'];
     loading.value = false;
   }
 
