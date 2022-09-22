@@ -200,6 +200,7 @@ class ProductDetailController extends GetxController {
         return http.Response('error', 500);
       },
     );
+    print(makeOrder.body);
     var jsonMakeOrder = json.decode(makeOrder.body);
     if (makeOrder.statusCode == 200) {
       makeOrderModel = MakeOrderModel.fromJson(jsonMakeOrder);
