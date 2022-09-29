@@ -124,7 +124,10 @@ class ProductDetailView extends GetView<ProductDetailController> {
                           // Get.toNamed('order-recipe');
 
                           controller.confirm(
-                              context, "Paket Joki 01", "Deskripsi", '140.000');
+                              context,
+                              controller.productDetailModel.data.productName,
+                              controller.productDetailModel.data.desc,
+                              controller.productDetailModel.data.price);
                         },
                         child: Text("Pesan Jasa"),
                       ),
