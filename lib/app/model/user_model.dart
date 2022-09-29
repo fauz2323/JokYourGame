@@ -11,7 +11,7 @@ class UserDataModel {
 
   factory UserDataModel.fromJson(Map<String, dynamic> json) => UserDataModel(
         message: json["message"],
-        balance: json['balance'],
+        balance: num.parse(json['balance']),
         userData: UserData.fromJson(json["userData"]),
       );
 

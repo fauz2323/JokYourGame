@@ -46,7 +46,7 @@ class OrderList {
 
   factory OrderList.fromJson(Map<String, dynamic> json) => OrderList(
         id: json["id"],
-        productId: json["product_id"],
+        productId: int.parse(json["product_id"]),
         userId: json["user_id"],
         note: json["note"],
         price: json["price"],
