@@ -47,7 +47,7 @@ class OrderList {
   factory OrderList.fromJson(Map<String, dynamic> json) => OrderList(
         id: json["id"],
         productId: int.parse(json["product_id"]),
-        userId: json["user_id"],
+        userId: int.parse(json["user_id"]),
         note: json["note"],
         price: json["price"],
         status: json["status"],
@@ -92,7 +92,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
-        gameId: json["game_id"],
+        gameId: int.parse(json["game_id"]),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],
