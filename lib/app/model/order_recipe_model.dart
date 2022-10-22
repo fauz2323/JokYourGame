@@ -49,7 +49,7 @@ class OrderList {
         productId: int.parse(json["product_id"]),
         userId: int.parse(json["user_id"]),
         note: json["note"],
-        price: json["price"],
+        price: int.parse(json["price"]),
         status: json["status"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
