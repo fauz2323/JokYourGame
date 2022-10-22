@@ -23,12 +23,15 @@ class HomeScreen extends StatelessWidget {
       child: ListView(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Hello, ${homeCOntroller.authModel.name}",
                 style: TextStyle(fontSize: 25),
               ),
+              IconButton(
+                  onPressed: () => homeCOntroller.getBalance(),
+                  icon: Icon(Icons.refresh)),
+              Spacer(),
               PopUpMenuWidget(homeCOntroller: homeCOntroller),
             ],
           ),

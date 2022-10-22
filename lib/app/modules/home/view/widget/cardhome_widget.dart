@@ -35,7 +35,7 @@ class CardHome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Your Balance : ${homeCOntroller.authModel.data.balance}",
+                "Your Balance : ${homeCOntroller.balance.value}",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

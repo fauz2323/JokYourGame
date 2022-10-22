@@ -11,6 +11,7 @@ class Api {
   static Uri AUTH = Uri.parse(baseUrl + '/api/auth');
   static Uri about = Uri.parse(baseUrl + '/api/about-apps');
   static Uri GameList = Uri.parse(baseUrl + '/api/game');
+  static Uri getBalance = Uri.parse(baseUrl + '/api/getBalance');
   static Uri Product = Uri.parse(baseUrl + '/api/product-list');
   static Uri Topup = Uri.parse(baseUrl + '/api/topup');
   static Uri topupList = Uri.parse(baseUrl + '/api/topup-list');
