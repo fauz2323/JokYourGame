@@ -186,6 +186,10 @@ class ProductDetailController extends GetxController {
   }
 
   makeOrder() async {
+    if (note.text.isEmpty) {
+      return Get.snackbar("Message", "Note is Empty");
+    }
+
     Get.back();
     isLoading.value = true;
     Map body = {
@@ -208,6 +212,7 @@ class ProductDetailController extends GetxController {
           arguments: makeOrderModel.orderDetail.id);
     } else {
       Get.back();
+      Get.snackbar("Message", "error has been detected, Please Contact Admin");
     }
   }
 
