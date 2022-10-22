@@ -100,7 +100,7 @@ class OrderCard extends StatelessWidget {
                       onTap: route,
                       child: Container(
                         padding: EdgeInsets.only(
-                            top: 6, bottom: 6, left: 20, right: 20),
+                            top: 6, bottom: 6, left: 10, right: 10),
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.all(

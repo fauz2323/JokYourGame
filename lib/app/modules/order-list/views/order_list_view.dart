@@ -28,7 +28,7 @@ class OrderListView extends GetView<OrderListController> {
                             status: e.status,
                             name: e.product.productName,
                             path:
-                                'https://www.xda-developers.com/files/2022/02/Google-Play-Store-logo-shown-on-a-solid-blue-background.jpg',
+                                'https://www.kibrispdr.org/data/981/trolley-icon-png-10.png',
                             date:
                                 "${e.createdAt.day} - ${e.createdAt.month} - ${e.createdAt.year}",
                             price: e.price.toString(),
