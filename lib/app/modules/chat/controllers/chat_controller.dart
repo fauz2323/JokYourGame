@@ -50,6 +50,7 @@ class ChatController extends GetxController {
   }
 
   sendMessage(String message) async {
+    isLoading.value = true;
     Map data = {
       'message': message,
     };
@@ -62,5 +63,6 @@ class ChatController extends GetxController {
 
       messageModel.add(MessageModel.fromJson(jsonData));
     }
+    isLoading.value = false;
   }
 }
