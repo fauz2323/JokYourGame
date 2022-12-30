@@ -18,15 +18,10 @@ class LoginController extends GetxController {
       'username': usernameController.text,
       'password': passwordController.text,
     };
-    final response = await http
-        .post(
-          Api.login,
-          body: body,
-        )
-        .timeout(
-          Duration(seconds: 5),
-          onTimeout: (() => http.Response('err', 500)),
-        );
+    final response = await http.post(
+      Api.login,
+      body: body,
+    );
 
     var jsonData = json.decode(response.body);
     print(jsonData);

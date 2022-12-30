@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Api {
-  static var baseUrl = 'http://jokyourgame.my.id';
-  static var imageUrl = 'http://jokyourgame.my.id';
+  static var baseUrl = 'https://jokyourgame.my.id';
+  static var imageUrl = 'https://jokyourgame.my.id';
   var token;
 
   // ignore: constant_identifier_names
