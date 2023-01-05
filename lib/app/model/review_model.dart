@@ -83,7 +83,7 @@ class User {
   DateTime updatedAt;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
+        id: json["id"].toString(),
         username: json["username"],
         email: json["email"],
         password: json["password"],

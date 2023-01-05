@@ -176,7 +176,9 @@ class ProductDetailController extends GetxController {
               SizedBox(
                 width: Get.width * 90 / 100,
                 child: ElevatedButton(
-                    onPressed: () => makeOrder(), child: Text("Confirm")),
+                  onPressed: () => makeOrder(),
+                  child: Text("Confirm"),
+                ),
               )
             ],
           ),

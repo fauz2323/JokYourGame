@@ -45,12 +45,12 @@ class OrderList {
   Product product;
 
   factory OrderList.fromJson(Map<String, dynamic> json) => OrderList(
-        id: json["id"],
-        productId: json["product_id"],
-        userId: json["user_id"],
+        id: json["id"].toString(),
+        productId: json["product_id"].toString(),
+        userId: json["user_id"].toString(),
         note: json["note"],
         review: json['review'],
-        price: json["price"],
+        price: json["price"].toString(),
         status: json["status"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
