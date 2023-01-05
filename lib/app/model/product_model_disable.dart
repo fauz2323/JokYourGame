@@ -30,8 +30,8 @@ class ListElement {
     required this.updatedAt,
   });
 
-  int id;
-  int gameId;
+  String id;
+  String gameId;
   String productName;
   String desc;
   String price;
@@ -39,8 +39,8 @@ class ListElement {
   DateTime updatedAt;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
-        id: json["id"],
-        gameId: json["game_id"],
+        id: json["id"].toString(),
+        gameId: json["game_id"].toString(),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],

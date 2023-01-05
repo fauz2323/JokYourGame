@@ -33,11 +33,11 @@ class OrderList {
     required this.product,
   });
 
-  int id;
-  int productId;
-  int userId;
+  String id;
+  String productId;
+  String userId;
   String note;
-  int price;
+  String price;
   String status;
   DateTime createdAt;
   DateTime updatedAt;
@@ -45,9 +45,9 @@ class OrderList {
   Product product;
 
   factory OrderList.fromJson(Map<String, dynamic> json) => OrderList(
-        id: json["id"],
-        productId: json["product_id"],
-        userId: json["user_id"],
+        id: json["id"].toString(),
+        productId: json["product_id"].toString(),
+        userId: json["user_id"].toString(),
         note: json["note"],
         price: json["price"],
         status: json["status"],
@@ -82,8 +82,8 @@ class Product {
     required this.updatedAt,
   });
 
-  int id;
-  int gameId;
+  String id;
+  String gameId;
   String productName;
   String desc;
   String price;
@@ -119,7 +119,7 @@ class User {
     required this.phone,
   });
 
-  int id;
+  String id;
   String username;
   String email;
   String phone;

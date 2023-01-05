@@ -30,7 +30,7 @@ class ProductDetailController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    id.value = Get.arguments;
+    id.value = int.parse(Get.arguments);
     initial();
     print(id.value.toString());
   }

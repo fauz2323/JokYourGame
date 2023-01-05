@@ -32,8 +32,11 @@ class OrderListView extends GetView<OrderListController> {
                             date:
                                 "${e.createdAt.day} - ${e.createdAt.month} - ${e.createdAt.year}",
                             price: e.price.toString(),
-                            route: () => controller.review(context, e.productId,
-                                e.id, e.product.productName),
+                            route: () => controller.review(
+                                context,
+                                int.parse(e.productId),
+                                int.parse(e.id),
+                                e.product.productName),
                           ),
                         )
                         .toList(),

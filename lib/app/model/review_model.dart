@@ -31,19 +31,19 @@ class Review {
     required this.user,
   });
 
-  int id;
-  int orderId;
-  int productId;
-  int userId;
+  String id;
+  String orderId;
+  String productId;
+  String userId;
   String review;
   DateTime createdAt;
   DateTime updatedAt;
   User user;
 
   factory Review.fromJson(Map<String, dynamic> json) => Review(
-        id: json["id"],
-        orderId: json["order_id"],
-        productId: json["product_id"],
+        id: json["id"].toString(),
+        orderId: json["order_id"].toString(),
+        productId: json["product_id"].toString(),
         userId: json["user_id"],
         review: json["review"],
         createdAt: DateTime.parse(json["created_at"]),
@@ -74,7 +74,7 @@ class User {
     required this.updatedAt,
   });
 
-  int id;
+  String id;
   String username;
   String email;
   String password;

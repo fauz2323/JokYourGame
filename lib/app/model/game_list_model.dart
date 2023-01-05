@@ -32,8 +32,8 @@ class ListElement {
     required this.image,
   });
 
-  int id;
-  int gameId;
+  String id;
+  String gameId;
   String productName;
   String desc;
   String price;
@@ -42,8 +42,8 @@ class ListElement {
   List<Image> image;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
-        id: json["id"],
-        gameId: json["game_id"],
+        id: json["id"].toString(),
+        gameId: json["game_id"].toString(),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],
@@ -73,15 +73,15 @@ class Image {
     required this.updatedAt,
   });
 
-  int id;
-  int idProduct;
+  String id;
+  String idProduct;
   String path;
   DateTime createdAt;
   DateTime updatedAt;
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
-        id: json["id"],
-        idProduct: int.parse(json["id_product"]),
+        id: json["id"].toString(),
+        idProduct: json["id_product"],
         path: json["path"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),

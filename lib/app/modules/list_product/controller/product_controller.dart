@@ -20,12 +20,12 @@ class ProductController extends GetxController {
   initial() async {
     tittle.value = Get.arguments;
     token = await storage.read(key: 'token');
-    print(token);
     final getDataProduct = await http.post(
       Api.Product,
       body: {'game': tittle.value},
       headers: header.getHeaderPost(token),
     );
+    print(getDataProduct.body);
 
     print(getDataProduct.body);
     if (getDataProduct.statusCode == 200) {

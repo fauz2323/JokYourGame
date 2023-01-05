@@ -29,7 +29,7 @@ class Data {
   int balance;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        balance: json['balance'],
+        balance: int.parse(json['balance']),
       );
 
   Map<String, dynamic> toJson() => {

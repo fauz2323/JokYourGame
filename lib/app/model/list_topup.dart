@@ -27,8 +27,8 @@ class Datum {
     required this.updatedAt,
   });
 
-  int id;
-  int idAkun;
+  String id;
+  String idAkun;
   String codeUniq;
   String total;
   String status;
@@ -38,8 +38,8 @@ class Datum {
   DateTime updatedAt;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
-        idAkun: json["id_akun"],
+        id: json["id"].toString(),
+        idAkun: json["id_akun"].toString(),
         codeUniq: json["codeUniq"],
         total: json["total"],
         status: json["status"],

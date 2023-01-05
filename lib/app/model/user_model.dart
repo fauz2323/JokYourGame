@@ -31,7 +31,7 @@ class UserData {
     required this.updatedAt,
   });
 
-  int id;
+  String id;
   String username;
   String email;
   String phone;
@@ -39,7 +39,7 @@ class UserData {
   DateTime updatedAt;
 
   factory UserData.fromJson(Map<String, dynamic> json) => UserData(
-        id: json["id"],
+        id: json["id"].toString(),
         username: json["username"],
         email: json["email"],
         phone: json["phone"],

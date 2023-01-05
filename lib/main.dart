@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Jok Your Game',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: Color.fromARGB(230, 255, 255, 255),

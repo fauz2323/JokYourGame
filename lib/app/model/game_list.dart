@@ -23,14 +23,14 @@ class Datum {
     required this.updatedAt,
   });
 
-  int id;
+  String id;
   String name;
   String imagePath;
   DateTime createdAt;
   DateTime updatedAt;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
+        id: json["id"].toString(),
         name: json["name"],
         imagePath: json["ImagePath"],
         createdAt: DateTime.parse(json["created_at"]),

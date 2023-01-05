@@ -27,18 +27,18 @@ class Data {
     required this.id,
   });
 
-  int idAkun;
-  int codeUniq;
+  String idAkun;
+  String codeUniq;
   String total;
   String ket;
   String status;
   String path;
   DateTime updatedAt;
   DateTime createdAt;
-  int id;
+  String id;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        idAkun: json["id_akun"],
+        idAkun: json["id_akun"].toString(),
         codeUniq: json["codeUniq"],
         total: json["total"],
         ket: json["ket"],
