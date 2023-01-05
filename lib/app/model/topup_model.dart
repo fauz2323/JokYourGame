@@ -39,14 +39,14 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         idAkun: json["id_akun"].toString(),
-        codeUniq: json["codeUniq"],
+        codeUniq: json["codeUniq"].toString(),
         total: json["total"],
         ket: json["ket"],
         status: json["status"],
         path: json["path"],
         updatedAt: DateTime.parse(json["updated_at"]),
         createdAt: DateTime.parse(json["created_at"]),
-        id: json["id"],
+        id: json["id"].toString(),
       );
 
   Map<String, dynamic> toJson() => {

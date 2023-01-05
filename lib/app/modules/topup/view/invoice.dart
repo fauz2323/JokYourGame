@@ -101,7 +101,7 @@ class InvoiceTopup extends StatelessWidget {
                         children: [
                           Text('Total Bayar'),
                           Text(
-                              "${int.parse(Get.arguments['total']) + Get.arguments['code']}"),
+                              "${int.parse(Get.arguments['total']) + int.parse(Get.arguments['code'])}"),
                         ],
                       ),
                       SizedBox(
