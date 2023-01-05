@@ -40,7 +40,7 @@ class Datum {
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        idAkun: int.parse(json["id_akun"]),
+        idAkun: json["id_akun"],
         codeUniq: json["codeUniq"],
         total: json["total"],
         status: json["status"],

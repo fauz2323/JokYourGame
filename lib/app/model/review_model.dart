@@ -42,9 +42,9 @@ class Review {
 
   factory Review.fromJson(Map<String, dynamic> json) => Review(
         id: json["id"],
-        orderId: int.parse(json["order_id"]),
-        productId: int.parse(json["product_id"]),
-        userId: int.parse(json["user_id"]),
+        orderId: json["order_id"],
+        productId: json["product_id"],
+        userId: json["user_id"],
         review: json["review"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),

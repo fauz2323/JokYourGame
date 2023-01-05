@@ -34,7 +34,7 @@ class OrderDetail {
     required this.id,
   });
 
-  String productId;
+  int productId;
   int userId;
   String note;
   String price;
@@ -87,7 +87,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
-        gameId: int.parse(json["game_id"]),
+        gameId: json["game_id"],
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],
