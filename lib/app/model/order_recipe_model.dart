@@ -91,8 +91,8 @@ class Product {
   DateTime updatedAt;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-        id: json["id"],
-        gameId: json["game_id"],
+        id: json["id"].toString(),
+        gameId: json["game_id"].toString(),
         productName: json["productName"],
         desc: json["desc"],
         price: json["price"],
@@ -125,7 +125,7 @@ class User {
   String phone;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
+        id: json["id"].toString(),
         username: json["username"],
         email: json["email"],
         phone: json["phone"],

@@ -44,14 +44,14 @@ class OrderDetail {
   String id;
 
   factory OrderDetail.fromJson(Map<String, dynamic> json) => OrderDetail(
-        productId: json["product_id"],
-        userId: json["user_id"],
+        productId: json["product_id"].toString(),
+        userId: json["user_id"].toString(),
         note: json["note"],
         price: json["price"],
         status: json["status"],
         updatedAt: DateTime.parse(json["updated_at"]),
         createdAt: DateTime.parse(json["created_at"]),
-        id: json["id"],
+        id: json["id"].toString(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -90,7 +90,7 @@ class Product {
         gameId: json["game_id"].toString(),
         productName: json["productName"],
         desc: json["desc"],
-        price: json["price"],
+        price: json["price"].toString(),
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
       );
