@@ -121,7 +121,15 @@ class TopUp extends GetView<TopUpController> {
                               width: Get.width * 40 / 100,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  controller.topup();
+                                  Get.defaultDialog(
+                                      title: "Konfirmasi",
+                                      middleText:
+                                          "Apakah anda yakin ingin melakukan top up sebesar Rp. ${controller.nominal.text} ?",
+                                      textConfirm: "Ya",
+                                      textCancel: "Tidak",
+                                      onConfirm: () {
+                                        controller.topup();
+                                      });
                                 },
                                 child: Text("Top Up"),
                               ),

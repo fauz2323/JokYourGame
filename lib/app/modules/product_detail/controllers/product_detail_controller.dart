@@ -176,7 +176,16 @@ class ProductDetailController extends GetxController {
               SizedBox(
                 width: Get.width * 90 / 100,
                 child: ElevatedButton(
-                  onPressed: () => makeOrder(),
+                  onPressed: () {
+                    Get.defaultDialog(
+                        title: "Confirmation",
+                        middleText: "Apakah anda yakin ?",
+                        textConfirm: "Yes",
+                        textCancel: "No",
+                        onConfirm: () {
+                          makeOrder();
+                        });
+                  },
                   child: Text("Confirm"),
                 ),
               )
